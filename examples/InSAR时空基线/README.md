@@ -1,0 +1,1 @@
+<img src="baseline.png" style="zoom:50%;" />
