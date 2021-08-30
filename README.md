@@ -4,7 +4,7 @@
 
 1. [中文支持](https://docs.gmt-china.org/6.2/chinese/windows/ )
 
-2. [配置中科大服务器](https://docs.gmt-china.org/latest/conf/misc/)(为了更快地下载GMT官方提供的地形等数据)
+2. [配置中科大服务器](https://docs.gmt-china.org/latest/conf/misc/)（为了更快地下载GMT官方提供的地形等数据）
 
 3. 学会使用`gdal`、`gawk`等工具
     ```bash
