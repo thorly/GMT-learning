@@ -1,5 +1,7 @@
 # GMT-learning
 
+0. [GMT中文手册](https://docs.gmt-china.org/6.2/)
+
 1. [中文支持](https://docs.gmt-china.org/6.2/chinese/windows/ )
 
 2. [配置中科大服务器](https://docs.gmt-china.org/latest/conf/misc/)(为了更快地下载GMT官方提供的地形等数据)
@@ -32,3 +34,8 @@
 8. 查看所有参数（`gmt defaults -D`）、查看字体（`gmt text -L`）
 
 9. `plot`模块可以直接使用shp文件，`grdimage`可以直接使用tif文件
+
+10. [特殊字符](https://docs.gmt-china.org/6.2/basis/special-character/)
+
+11. [转义字符](https://docs.gmt-china.org/6.2/basis/escape-character/)(实现上标、下标等功能，并可以在一个字符串内随意切换字体、字号和颜色)
+
