@@ -2,7 +2,7 @@
 
 0. [GMT中文手册](https://docs.gmt-china.org/6.2/)（多查阅,见多识广）
 
-1. [配置中文支持](https://docs.gmt-china.org/6.2/chinese/windows/)（不再依赖CorelDRA😉）
+1. [配置中文支持](https://docs.gmt-china.org/6.2/chinese/windows/)（不再依赖CorelDRAW😉）
 
 2. [配置中科大服务器](https://docs.gmt-china.org/latest/conf/misc/)（为了更快地下载GMT官方提供的地形等数据）
 
