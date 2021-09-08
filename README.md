@@ -39,3 +39,4 @@
 
 11. [转义字符](https://docs.gmt-china.org/6.2/basis/escape-character/)(实现上标、下标等功能，并可以在一个字符串内随意切换字体、字号和颜色)
 
+12. [自定义符号](https://docs.gmt-china.org/latest/module/plot/#gmt)

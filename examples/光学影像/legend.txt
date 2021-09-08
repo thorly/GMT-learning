@@ -1,0 +1,8 @@
+N 1 
+S 0.1i t 0.1c red 1p,red 0.22i 蓄水池位置 
+G 0.1c 
+S 0.1i - 0.3c black 1p,black 0.22i 滑坡边界 
+G 0.1c 
+S 0.1i - 0.3c black 1p,blue 0.22i 流沙河 
+G 0.1c 
+S 0.1i - 0.3c black 1p,cyan 0.22i 坡体内部小河流 
