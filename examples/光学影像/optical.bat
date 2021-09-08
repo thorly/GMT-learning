@@ -25,9 +25,7 @@ gmt begin
 
     gmt plot 坡体内部小河流.gmt -W1p,cyan
 
-    gmt kml2gmt 流沙河.kml > liusha.gmt
-
-    gmt plot liusha.gmt -W1p,blue
+    gmt kml2gmt 流沙河.kml | gmt plot  -W1p,blue
 
     echo 102.542 29.628 -90 | gmt plot -Skcompass/0.6c -W0.6p
     echo 102.542 29.628 N | gmt text -F+f10p,4+jBC -Dj0c/0.4c
