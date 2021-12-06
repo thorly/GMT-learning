@@ -1,42 +1,137 @@
 # GMT-learning
 
-0. [GMT中文手册](https://docs.gmt-china.org/6.2/)（多查阅,见多识广）
+## 1. basemap
 
-1. [配置中文支持](https://docs.gmt-china.org/6.2/chinese/windows/)（不再依赖CorelDRAW😉）
+```bash
+# 只保留label
+gmt basemap -JX10c -R0/20/0/20 -BWSne -Bxa0+l"x label" -Bya0+l"y label" -png nolabel
+# log轴
+gmt basemap -JX10c/10cl -R-1/6/1/10000 -Bxa1f0.5+l"Magnitude" -Bya10pf3p+l"Number" -BWSne -png log
+# 比例尺
+gmt basemap -R100/110/50/60 -JM5c -Baf -BWSne -Lg105/55+c55+w400k+u+f -png scale
+```
 
-2. [配置中科大服务器](https://docs.gmt-china.org/latest/conf/misc/)（为了更快地下载GMT官方提供的地形等数据）
+## 2. clip
 
-3. 学会使用`gdal`、`gawk`等工具
-    ```bash
-    # 投影变换 EPSG:4326 WGS84
-    gdalwarp -t_srs EPSG:4326 input.tif output.tif
-    # shp2gmt（GMT也可直接使用shp文件）
-    ogr2ogr -f OGR_GMT -t_srs EPSG:4326 gadm36_CHN_0.gmt gadm36_CHN_0.shp
-    # 数据转换（gdal_translate --long-usage）
-    gdal_translate -of GTiff input.grd output.tif
-    # 拼接
-    gdalwarp input1.tif input2.tif merged.tif
-    gdal_merge.py -o merged.tif input1.tif input2.tif
-    # 裁剪
-    gdalwarp -te <x_min> <y_min> <x_max> <y_max> input.tif clipped_output.tif
-    # 筛选数据（Windows下可安装gawk软件）
-    gawk "{if ($17>0 && $17<=1) print $3,$2,$17,$4}" t1 > 0-1.txt
-    ```
+```bash
+    # 绘制文件jiangxi.dat指定的多边形内数据
+    gmt clip jiangxi.dat
+    gmt grdimage jiangxi.grd -I+d -Cdem2
+    gmt clip -C
+```
 
-4. 不要依赖`Surfer`等软件制作grd文件，对于规则的xyz文件可以使用GMT内置模块`xyz2grd`制作，不规则数据可以使用`surface`制作
+## 3. coast
 
-5. [使用VScode编写脚本并绘图](https://gmt-china.org/blog/vscode-usage/)（画图成了一种享受😁）
+```bash
+# 绘制比例尺
+gmt coast -Da -W1 -A1000000 -Lf103.72/32.95/33.1/20+u --FONT_ANNOT_PRIMARY=6p,4 --MAP_ANNOT_OFFSET_PRIMARY=2p --MAP_SCALE_HEIGHT=3p
 
-6. 在中文已经设置好的前提下，某些字乱码或者不显示（`gmt set PS_CHAR_ENCODING Standard+`）
+# 绘制指北针
+gmt coast -Da -I0 -A1000000 -Tf104.12/33.48/0.2i/2 --FONT_TITLE=5p,4 --MAP_TITLE_OFFSET=2p
 
-7. 绘图设定范围时，可以直接使用`-Rtt.grd`
+# 填充水域
+gmt coast  -S89/195/226 -Di -Ia -W1 -A1000000
+```
 
-8. 查看所有参数（`gmt defaults -D`）、查看字体（`gmt text -L`）、查看模块文档（`gmt 模块名称`）
+## 4. colorbar
 
-9. `plot`模块可以直接使用shp文件，`grdimage`可以直接使用tif文件
+```bash
+# 垂直
+gmt colorbar -DjBL+o0.1c/0.1c+w2c/0.2c -Bx0.1 -By+lm -Ccpt --FONT_ANNOT_PRIMARY=6p,4 --MAP_ANNOT_OFFSET_PRIMARY=2p --MAP_FRAME_PEN=0.4p
+# 水平
+gmt colorbar -DjBL+o0.1c/0.1c+w2c/0.2c+h -Bx0.1 -By+lm -Ccpt --FONT_ANNOT_PRIMARY=6p,4 --MAP_ANNOT_OFFSET_PRIMARY=2p --MAP_FRAME_PEN=0.4p
+```
 
-10. [特殊字符](https://docs.gmt-china.org/6.2/basis/special-character/)
+## 5. gmtmath
 
-11. [转义字符](https://docs.gmt-china.org/6.2/basis/escape-character/)(实现上标、下标等功能，并可以在一个字符串内随意切换字体、字号和颜色)
+```bash
+# 更多计算见gmt math的help
+# C2 * 5.6 / (-4) / PI
+gmt math asc_unw.xyz -C2 5.6 MUL -4 DIV PI DIV = asc_disp.xyz
+```
 
-12. [自定义符号](https://docs.gmt-china.org/latest/module/plot/#gmt)
+## 6. grdcontour
+
+```bash
+    # 主要等高线 500m 间隔(-A)，次要等高线 100m 间隔(-C)
+    gmt grdcontour maunakea.grd -C100 -Q100 -A400+f8p,25,darkred+o
+```
+
+## 7. grdcut
+
+```bash
+# 使用GMT提供的dem进行裁剪
+gmt grdcut @earth_relief_15s -R100/102/32/34 -Gdem_small.grd
+```
+
+## 8. grdimage
+
+```bash
+# dem1为自带cpt（查看gmt安装目录）,Q表示不绘制none值区域
+gmt grdimage unw.grd  -Cdem1 -Q
+
+# 自动计算并绘制光照效果
+gmt grdimage unw.grd  -I+d -Cdemgray.cpt -Q
+
+# 绘制地形光照效果
+# -I 和 -R 选项必须一致(可以使用grdsample对grd进行重采样)
+grdgradient dem.grd -Ne0.8 -A100 -Gdem.grad
+gmt grdimage unw.grd -Cunw.cpt -Q -Idem.grad
+```
+
+## 9. grdmath
+
+```bash
+# 计算dem的东西方向的一阶导数(适用于地理坐标)，更多计算见gmt grdmath的help
+gmt grdmath dem.grd -M DDX = dem_ddx.grd
+# 计算x方向的一阶导数
+gmt grdmath data.grd DDX = data_ddx.grd
+```
+
+## 10. grdview
+
+```bash
+gmt begin jiangxi png
+    # 中值滤波平滑地形，平滑直径50km
+    gmt grdfilter jiangxi.grd -Fm50 -D4 -Gjiangxi_filter.grd
+    gmt basemap -JM12c -JZ6c -BESnwZ -R113/119/24/31/-100/2100 -p140/25 -Baf -Bzaf+l"elevation(m)"
+    # 三维
+    gmt grdview jiangxi_filter.grd -Cdem3 -p140/25 -Qi400 -N-100+g150/150/150 -I+d -JZ6c
+gmt end
+```
+
+## 11. grdsample
+
+```bash
+# 将dem采样至与unw_re.grd相同的坐标空间（1256和1054表示unw_re.grd的行列数）
+gmt grdsample dem.grd -Runw_re.grd -I1256+n/1054+n -Gdem_re.grd
+```
+
+## 12. legend
+
+```bash
+echo N 1 > legend.txt
+echo S 1p c 0.2p black 0.1p,black 4p Gravity Point >> legend.txt
+gmt legend legend.txt -DjTR+w1.6cc+o0.1c/0.1c -F+p0.2p+gwhite --FONT_ANNOT_PRIMARY=6p,4
+```
+
+## 13. makecpt
+
+```bash
+# 周期性cpt
+gmt makecpt -Cjet -T0/2.8 -Ww
+# 普通cpt
+gmt makecpt -Crainbow -T-3.14/3.14/0.1
+```
+
+## 14. meca
+
+```bash
+# (震中位置、节理面1、节理面2、地震矩、沙滩球位置)
+echo 103.777541666667 33.215625 9 246 57 -173 153 84 -33 8.9 18 103.85 33.3 > earthquake
+gmt meca earthquake -CP2p -Gred -Sc1.3c -L0.5
+
+# (震中位置、断层走向、倾角、滑动角、矩震级、沙滩球位置)
+echo 103.777541666667 33.215625 9 153 84 -33 5.7 103.85 33.3 > earthquake
+gmt meca earthquake -CP2p -Gred -Sa1.3c -L0.5
+```
