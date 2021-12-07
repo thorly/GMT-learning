@@ -14,10 +14,10 @@ gmt basemap -R100/110/50/60 -JM5c -Baf -BWSne -Lg105/55+c55+w400k+u+f -png scale
 ## 2. clip
 
 ```bash
-    # 绘制文件jiangxi.dat指定的多边形内数据
-    gmt clip jiangxi.dat
-    gmt grdimage jiangxi.grd -I+d -Cdem2
-    gmt clip -C
+# 绘制文件jiangxi.dat指定的多边形内数据
+gmt clip jiangxi.dat
+gmt grdimage jiangxi.grd -I+d -Cdem2
+gmt clip -C
 ```
 
 ## 3. coast
