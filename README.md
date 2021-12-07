@@ -53,8 +53,8 @@ gmt math asc_unw.xyz -C2 5.6 MUL -4 DIV PI DIV = asc_disp.xyz
 ## 6. grdcontour
 
 ```bash
-    # 主要等高线 500m 间隔(-A)，次要等高线 100m 间隔(-C)
-    gmt grdcontour maunakea.grd -C100 -Q100 -A400+f8p,25,darkred+o
+# 主要等高线 500m 间隔(-A)，次要等高线 100m 间隔(-C)
+gmt grdcontour maunakea.grd -C100 -Q100 -A400+f8p,25,darkred+o
 ```
 
 ## 7. grdcut
