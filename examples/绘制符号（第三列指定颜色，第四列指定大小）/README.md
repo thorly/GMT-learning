@@ -1,1 +1,1 @@
-![符号](f.png)
+<img src="A1.png" width="%50" height="%50" />

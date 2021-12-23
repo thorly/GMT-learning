@@ -1,9 +1,3 @@
-#!/bin/bash
-##############################################
-# plot baseline network using GMT and GAMMA  #
-# Copyright (c) 2021, Lei Yuan               #
-##############################################
-
 gmt set FORMAT_DATE_MAP "yyyy-mm-dd"
 gmt set FORMAT_TIME_PRIMARY_MAP Abbreviated
 gmt set FORMAT_DATE_IN "yyyymmdd"

@@ -1,1 +1,1 @@
-<img src="coverage.png" style="zoom:50%;" />
+<img src="coverage.png" width="%50" height="%50" />

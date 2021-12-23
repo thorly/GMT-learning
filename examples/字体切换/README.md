@@ -1,1 +1,1 @@
-![font](font.png)
+<img src="font.png" width="%50" height="%50" />

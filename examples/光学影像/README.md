@@ -1,1 +1,1 @@
-<img src="river.png" alt="vel" style="zoom:50%;" />
+<img src="river.png" width="%50" height="%50" />

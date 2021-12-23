@@ -1,0 +1,1 @@
+<img src="fit.png" width="%50" height="%50" />

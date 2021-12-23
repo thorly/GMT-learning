@@ -2,9 +2,9 @@
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
 <Document>
 	<name>area.kml</name>
-	<Style id="s_ylw-pushpin_hl">
+	<Style id="s_ylw-pushpin">
 		<IconStyle>
-			<scale>1.3</scale>
+			<scale>1.1</scale>
 			<Icon>
 				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
 			</Icon>
@@ -24,9 +24,9 @@
 			<styleUrl>#s_ylw-pushpin_hl</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Style id="s_ylw-pushpin">
+	<Style id="s_ylw-pushpin_hl">
 		<IconStyle>
-			<scale>1.1</scale>
+			<scale>1.3</scale>
 			<Icon>
 				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
 			</Icon>
@@ -44,7 +44,7 @@
 			<outerBoundaryIs>
 				<LinearRing>
 					<coordinates>
-						97.2108154235426,35.83895111988658,0 96.83655104809573,33.6767515020932,0 99.31479257041516,33.37346444171227,0 99.81503269568911,35.50119798043962,0 97.2108154235426,35.83895111988658,0 
+						45.28262264196334,35.3472942841069,0 45.55292025211223,34.00606671962917,0 46.41779276150865,34.12836700889272,0 46.14808093708169,35.46824980405346,0 45.28262264196334,35.3472942841069,0 
 					</coordinates>
 				</LinearRing>
 			</outerBoundaryIs>

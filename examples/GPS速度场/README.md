@@ -1,1 +1,1 @@
-<img src="ITRF下水平速度场.png" alt="ITRF下水平速度场" style="zoom:50%;" />
+<img src="ITRF下水平速度场.png" width="%50" height="%50" />

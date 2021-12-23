@@ -1,1 +1,1 @@
-<img src="profile.png" alt="profile" style="zoom:50%;" />
+<img src="profile.png" width="%50" height="%50" />

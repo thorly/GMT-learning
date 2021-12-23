@@ -1,1 +1,1 @@
-![profile](profile.png)
+<img src="profile.png" width="%50" height="%50" />
