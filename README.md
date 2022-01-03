@@ -13,12 +13,7 @@ gmt basemap -R100/110/50/60 -JM5c -Baf -BWSne -Lg105/55+c55+w400k+u+f -png scale
 
 ## clip
 
-```bash
-# 绘制文件jiangxi.dat指定的多边形内数据
-gmt clip jiangxi.dat
-gmt grdimage jiangxi.grd -I+d -Cdem2
-gmt clip -C
-```
+只绘制指定的多边形内数据 [示例代码](examples/InSAR解缠图叠加地形光照效果/unw.bat)
 
 ## coast
 
@@ -41,6 +36,10 @@ gmt colorbar -DjBL+o0.1c/0.1c+w2c/0.2c -Bx0.1 -By+lm -Ccpt --FONT_ANNOT_PRIMARY=
 # 水平
 gmt colorbar -DjBL+o0.1c/0.1c+w2c/0.2c+h -Bx0.1 -By+lm -Ccpt --FONT_ANNOT_PRIMARY=6p,4 --MAP_ANNOT_OFFSET_PRIMARY=2p --MAP_FRAME_PEN=0.4p
 ```
+
+## figure
+
+[示例代码](examples/InSAR时空基线/baseline.bat)
 
 ## gmtmath
 
@@ -107,9 +106,15 @@ gmt end
 gmt grdsample dem.grd -Runw_re.grd -I1256+n/1054+n -Gdem_re.grd
 ```
 
+[示例代码](examples/InSAR解缠图叠加地形光照效果/unw.bat)
+
 ## grdtrack
 
-[示例代码](./examples/高程剖面线（grdtrack）/height_profile.bat)
+[示例代码](examples/高程剖面线（grdtrack）/height_profile.bat)
+
+## inset
+
+[示例代码](examples/滑坡地理位置/coverage.bat)
 
 ## legend
 
@@ -142,8 +147,8 @@ gmt meca earthquake -CP2p -Gred -Sa1.3c -L0.5
 
 ## project
 
-[示例代码](./examples/速率剖面线（project）/vel_profile.bat)
+[示例代码](examples/速率剖面线（project）/vel_profile.bat)
 
 ## velo
 
-[示例代码](./examples/GPS速度场/vel.sh)
+[示例代码](examples/GPS速度场/vel.sh)
