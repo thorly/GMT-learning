@@ -1,6 +1,6 @@
 # GMT-learning
 
-## 1. basemap
+## basemap
 
 ```bash
 # 只保留label
@@ -11,7 +11,7 @@ gmt basemap -JX10c/10cl -R-1/6/1/10000 -Bxa1f0.5+l"Magnitude" -Bya10pf3p+l"Numbe
 gmt basemap -R100/110/50/60 -JM5c -Baf -BWSne -Lg105/55+c55+w400k+u+f -png scale
 ```
 
-## 2. clip
+## clip
 
 ```bash
 # 绘制文件jiangxi.dat指定的多边形内数据
@@ -20,7 +20,7 @@ gmt grdimage jiangxi.grd -I+d -Cdem2
 gmt clip -C
 ```
 
-## 3. coast
+## coast
 
 ```bash
 # 绘制比例尺
@@ -33,7 +33,7 @@ gmt coast -Da -I0 -A1000000 -Tf104.12/33.48/0.2i/2 --FONT_TITLE=5p,4 --MAP_TITLE
 gmt coast  -S89/195/226 -Di -Ia -W1 -A1000000
 ```
 
-## 4. colorbar
+## colorbar
 
 ```bash
 # 垂直
@@ -42,7 +42,7 @@ gmt colorbar -DjBL+o0.1c/0.1c+w2c/0.2c -Bx0.1 -By+lm -Ccpt --FONT_ANNOT_PRIMARY=
 gmt colorbar -DjBL+o0.1c/0.1c+w2c/0.2c+h -Bx0.1 -By+lm -Ccpt --FONT_ANNOT_PRIMARY=6p,4 --MAP_ANNOT_OFFSET_PRIMARY=2p --MAP_FRAME_PEN=0.4p
 ```
 
-## 5. gmtmath
+## gmtmath
 
 ```bash
 # 更多计算见gmt math的help
@@ -50,21 +50,21 @@ gmt colorbar -DjBL+o0.1c/0.1c+w2c/0.2c+h -Bx0.1 -By+lm -Ccpt --FONT_ANNOT_PRIMAR
 gmt math asc_unw.xyz -C2 5.6 MUL -4 DIV PI DIV = asc_disp.xyz
 ```
 
-## 6. grdcontour
+## grdcontour
 
 ```bash
 # 主要等高线 500m 间隔(-A)，次要等高线 100m 间隔(-C)
 gmt grdcontour maunakea.grd -C100 -Q100 -A400+f8p,25,darkred+o
 ```
 
-## 7. grdcut
+## grdcut
 
 ```bash
 # 使用GMT提供的dem进行裁剪
 gmt grdcut @earth_relief_15s -R100/102/32/34 -Gdem_small.grd
 ```
 
-## 8. grdimage
+## grdimage
 
 ```bash
 # dem1为自带cpt（查看gmt安装目录）,Q表示不绘制none值区域
@@ -79,7 +79,7 @@ grdgradient dem.grd -Ne0.8 -A100 -Gdem.grad
 gmt grdimage unw.grd -Cunw.cpt -Q -Idem.grad
 ```
 
-## 9. grdmath
+## grdmath
 
 ```bash
 # 计算dem的东西方向的一阶导数(适用于地理坐标)，更多计算见gmt grdmath的help
@@ -88,7 +88,7 @@ gmt grdmath dem.grd -M DDX = dem_ddx.grd
 gmt grdmath data.grd DDX = data_ddx.grd
 ```
 
-## 10. grdview
+## grdview
 
 ```bash
 gmt begin jiangxi png
@@ -100,14 +100,18 @@ gmt begin jiangxi png
 gmt end
 ```
 
-## 11. grdsample
+## grdsample
 
 ```bash
 # 将dem采样至与unw_re.grd相同的坐标空间（1256和1054表示unw_re.grd的行列数）
 gmt grdsample dem.grd -Runw_re.grd -I1256+n/1054+n -Gdem_re.grd
 ```
 
-## 12. legend
+## grdtrack
+
+[示例代码](./examples/高程剖面线（grdtrack）/height_profile.bat)
+
+## legend
 
 ```bash
 echo N 1 > legend.txt
@@ -115,7 +119,7 @@ echo S 1p c 0.2p black 0.1p,black 4p Gravity Point >> legend.txt
 gmt legend legend.txt -DjTR+w1.6cc+o0.1c/0.1c -F+p0.2p+gwhite --FONT_ANNOT_PRIMARY=6p,4
 ```
 
-## 13. makecpt
+## makecpt
 
 ```bash
 # 周期性cpt
@@ -124,7 +128,7 @@ gmt makecpt -Cjet -T0/2.8 -Ww
 gmt makecpt -Crainbow -T-3.14/3.14/0.1
 ```
 
-## 14. meca
+## meca
 
 ```bash
 # (震中位置、节理面1、节理面2、地震矩、沙滩球位置)
@@ -135,3 +139,11 @@ gmt meca earthquake -CP2p -Gred -Sc1.3c -L0.5
 echo 103.777541666667 33.215625 9 153 84 -33 5.7 103.85 33.3 > earthquake
 gmt meca earthquake -CP2p -Gred -Sa1.3c -L0.5
 ```
+
+## project
+
+[示例代码](./examples/速率剖面线（project）/vel_profile.bat)
+
+## velo
+
+[示例代码](./examples/GPS速度场/vel.sh)
