@@ -1,6 +1,0 @@
-N 1 
-S 0.1i c 0.1c black 1p,black 0.22i A 
-S 0.1i c 0.1c red 1p,red 0.22i B 
-S 0.1i c 0.1c green 1p,green 0.22i D 
-S 0.1i c 0.1c purple 1p,purple 0.22i E 
-S 0.1i c 0.1c blue 1p,blue 0.22i F@%39%（最大形变点） 

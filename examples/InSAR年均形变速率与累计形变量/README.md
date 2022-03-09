@@ -1,1 +1,0 @@
-<img src="vel_ts.png" alt="vel" style="zoom:50%;" />

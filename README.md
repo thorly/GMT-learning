@@ -1,5 +1,7 @@
 # GMT-learning
 
+[GMT绘图技巧](skills.md)
+
 ## basemap
 
 ```bash
@@ -13,7 +15,7 @@ gmt basemap -R100/110/50/60 -JM5c -Baf -BWSne -Lg105/55+c55+w400k+u+f -png scale
 
 ## clip
 
-只绘制指定的多边形内数据 [示例代码](examples/InSAR解缠图叠加地形光照效果/unw.bat)
+只绘制指定的多边形内数据 [示例代码](examples/InSAR缠绕图叠加地形光照效果/unw.bat)
 
 ## coast
 
@@ -89,15 +91,7 @@ gmt grdmath data.grd DDX = data_ddx.grd
 
 ## grdview
 
-```bash
-gmt begin jiangxi png
-    # 中值滤波平滑地形，平滑直径50km
-    gmt grdfilter jiangxi.grd -Fm50 -D4 -Gjiangxi_filter.grd
-    gmt basemap -JM12c -JZ6c -BESnwZ -R113/119/24/31/-100/2100 -p140/25 -Baf -Bzaf+l"elevation(m)"
-    # 三维
-    gmt grdview jiangxi_filter.grd -Cdem3 -p140/25 -Qi400 -N-100+g150/150/150 -I+d -JZ6c
-gmt end
-```
+[示例代码](examples/三维地形图（grdview）/3d.bat)
 
 ## grdsample
 
@@ -144,6 +138,10 @@ gmt meca earthquake -CP2p -Gred -Sc1.3c -L0.5
 echo 103.777541666667 33.215625 9 153 84 -33 5.7 103.85 33.3 > earthquake
 gmt meca earthquake -CP2p -Gred -Sa1.3c -L0.5
 ```
+
+## plot3d
+
+[示例代码](examples/三维断裂带闭锁系数图（plot3d）/phi.bat)
 
 ## project
 

@@ -1,1 +1,0 @@
-<img src="rain_ts.png" alt="rain_ts" style="zoom:50%;" />

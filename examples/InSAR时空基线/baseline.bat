@@ -18,28 +18,28 @@ set R="2019-12T/2021-2T/-120/80"
 
 gmt begin
     gmt figure baseline_with_coherence png
-        gmt basemap -R%R% -JX10c/8c -Bxa2Of10dg1O+a-60 -Bya20f5g40+l"Perpendicular Baseline (m)" -BWSne
+        gmt basemap -R%R% -JX10c/6c -Bxa6Of10dg2O -Bya40f20g40+l"Perpendicular Baseline (m)" -BWSne
 
         gmt makecpt -Chot -I -T0/1
+        gmt plot baseline_with_coherence -St0.2 -Gblack
         gmt plot baseline_with_coherence -W0.3p,black -C
-        gmt plot baseline_with_coherence -Sc0.1 -Gblack
-        echo 20200826 0 | gmt plot -Sc0.1 -Gred
-        gmt colorbar -C -DjBR+w8c/0.3c+o-0.5c/0c -Bx1
+        echo 20200826 0 | gmt plot -St0.2 -Gred
+        gmt colorbar -C -DjBR+w6c/0.3c+o-0.5c/0c -Bx1
 
         echo N 1 > legend.txt
-        echo S 0.1i c 0.1c red - 0.22i supermaster image >> legend.txt
-        gmt legend legend.txt -DjBR+w3.1c+o0c/0c  --FONT_ANNOT_PRIMARY=8p,4
+        echo S 0.1i t 0.2c red - 0.22i supermaster image >> legend.txt
+        gmt legend legend.txt -DjBR+w3.1c+o0c/0.2c  --FONT_ANNOT_PRIMARY=8p,4
 
     gmt figure baseline png
-        gmt basemap -R%R% -JX10c/8c -Bxa2Of10dg1O+a-60 -Bya20f5g40+l"Perpendicular Baseline (m)" -BWSne
+        gmt basemap -R%R% -JX10c/6c -Bxa6Of10dg2O -Bya40f20g40+l"Perpendicular Baseline (m)" -BWSne
 
+        gmt plot baseline -St0.2 -Gblack
         gmt plot baseline -W0.3p,black
-        gmt plot baseline -Sc0.1 -Gblack
-        echo 20200826 0 | gmt plot -Sc0.1 -Gred
+        echo 20200826 0 | gmt plot -St0.2 -Gred
 
         echo N 1 > legend.txt
-        echo S 0.1i c 0.1c red - 0.22i supermaster image >> legend.txt
-        gmt legend legend.txt -DjBR+w3.1c+o0c/0c  --FONT_ANNOT_PRIMARY=8p,4
+        echo S 0.1i t 0.2c red - 0.22i supermaster image >> legend.txt
+        gmt legend legend.txt -DjBR+w3.1c+o0c/0.2c  --FONT_ANNOT_PRIMARY=8p,4
 
 gmt end
 del gmt.*,legend.txt
