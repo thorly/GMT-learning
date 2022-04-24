@@ -27,7 +27,7 @@ gmt coast -Da -W1 -A1000000 -Lf103.72/32.95/33.1/20+u --FONT_ANNOT_PRIMARY=6p,4 
 gmt coast -Da -I0 -A1000000 -Tf104.12/33.48/0.2i/2 --FONT_TITLE=5p,4 --MAP_TITLE_OFFSET=2p
 
 # 填充水域
-gmt coast  -S89/195/226 -Di -Ia -W1 -A1000000
+gmt coast  -S89/195/226 -Di -W1 -A1000000
 ```
 
 ## colorbar
@@ -104,7 +104,7 @@ gmt grdsample dem.grd -Runw_re.grd -I1256+n/1054+n -Gdem_re.grd
 
 ## grdtrack
 
-[示例代码](examples/高程剖面线（grdtrack）/height_profile.bat)
+[示例代码](examples/高程剖面线（grdtrack）/profile.bat)
 
 ## inset
 
