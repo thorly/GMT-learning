@@ -41,12 +41,12 @@ def makecpt(clr_file, cpt_file, min_val, max_val):
     color1 = np.zeros((row, col-1))
     for i in range(row):
         color1[i, 0] = color[i, 0]/100*(max_val-min_val)+min_val
-        color1[i, 1:3] = color[i, 1:3]
+        color1[i, 1:4] = color[i, 1:4]
 
     color2 = np.zeros((row - 1, 8))
     for i in range(row - 1):
-        color2[i, 0:3] = color1[i, 0:3]
-        color2[i, 4:7] = color1[i+1, 0:3]
+        color2[i, 0:4] = color1[i, 0:4]
+        color2[i, 4:8] = color1[i+1, 0:4]
 
     with open(cpt_file, 'w') as f:
         row, col = color2.shape
