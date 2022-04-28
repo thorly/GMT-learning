@@ -24,10 +24,10 @@ gmt basemap -R100/110/50/60 -JM5c -Baf -BWSne -Lg105/55+c55+w400k+u+f -png scale
 gmt coast -Da -W1 -A1000000 -Lf103.72/32.95/33.1/20+u --FONT_ANNOT_PRIMARY=6p,4 --MAP_ANNOT_OFFSET_PRIMARY=2p --MAP_SCALE_HEIGHT=3p
 
 # 绘制指北针
-gmt coast -Da -I0 -A1000000 -Tf104.12/33.48/0.2i/2 --FONT_TITLE=5p,4 --MAP_TITLE_OFFSET=2p
+gmt coast -Da -A1000000 -Tf104.12/33.48/0.2i/2 --FONT_TITLE=5p,4 --MAP_TITLE_OFFSET=2p
 
 # 填充水域
-gmt coast  -S89/195/226 -Di -W1 -A1000000
+gmt coast  -S89/195/226 -Df -A1000000
 ```
 
 ## colorbar
@@ -87,6 +87,8 @@ gmt grdimage unw.grd -Cunw.cpt -Q -Idem.grad
 gmt grdmath dem.grd -M DDX = dem_ddx.grd
 # 计算x方向的一阶导数
 gmt grdmath data.grd DDX = data_ddx.grd
+# 重新缠绕数据至(-4,4) [w0 + mod(data - w0, w1 - w0)]
+gmt grdmath unw.grd -4 SUB 4 -4 SUB MOD -4 ADD = wrap8.grd
 ```
 
 ## grdview
