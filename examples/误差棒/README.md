@@ -1,0 +1,1 @@
+<img src="error_bar.png" width="%50" height="%50" />
