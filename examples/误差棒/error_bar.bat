@@ -6,7 +6,7 @@ gmt set FONT_LABEL 8p,4
 
 
 gmt begin error_bar png E500
-    gmt basemap -JX8c/4c -R90/103/0/15 -Bxa2f1+l"Longitude (\272)" -Bya2f2g2+l"slip rate (mm/a)"
+    gmt basemap -JX8c/4c -R90/103/0/15.1 -Bxa2f1+l"Longitude (\272)" -Bya2f2g2+l"slip rate (mm/a)"
 
     @REM Geodetic slip rates
     @REM Duvall and Clark.(2010)
@@ -15,8 +15,8 @@ gmt begin error_bar png E500
     gmt plot tmp1 -W4p,yellow
 
     @REM Kirby et al.(2007)
-    echo 94.21038125861277 7.980707395498392   > tmp1
-    echo 94.21038125861277 12.109324758842444 >> tmp1
+    echo 94.25 7.980707395498392   > tmp1
+    echo 94.25 12.109324758842444 >> tmp1
     echo 101.60307521214611 2.617363344051448  > tmp2
     echo 101.60307521214611 4.739549839228292 >> tmp2
     gmt plot tmp1 -W4p,33/80/160
@@ -31,7 +31,7 @@ gmt begin error_bar png E500
     gmt plot tmp1 -W4p,red
     gmt plot tmp2 -W4p,red
 
-    @REM 
+    @REM Zhao et al.(2022)
     echo 90.52270210409745 2.166666666666668  > tmp1
     echo 90.52270210409745 9.5               >> tmp1
     gmt plot tmp1 -W4p,242/166/1
@@ -111,13 +111,21 @@ gmt begin error_bar png E500
     echo 101.95690544689699 2.463022508038584 0.85  | gmt plot -Ey+w4p+p0.3p,black -Ss0.2c -W0.3p -Gred
 
     @REM Van der Woerd et al.(2002)
-    echo 94.54280395522568  10.836012861736334 0.93 | gmt plot -Ey+w4p+p0.3p,black -Ss0.2c -W0.3p -G15/184/34
-    echo 94.91845369049634  11.067524115755628 1.97 | gmt plot -Ey+w4p+p0.3p,black -Ss0.2c -W0.3p -G15/184/34
-    echo 95.49075260498513  10.372990353697748 1.5  | gmt plot -Ey+w4p+p0.3p,black -Ss0.2c -W0.3p -G15/184/34
-    echo 99.49234823392887  9.09967845659164 2.93   | gmt plot -Ey+w4p+p0.3p,black -Ss0.2c -W0.3p -G15/184/34
-    echo 99.82211154896888  9.94855305466238 0.85   | gmt plot -Ey+w4p+p0.3p,black -Ss0.2c -W0.3p -G15/184/34
-    echo 99.82496434011072  7.672025723472668 1.16  | gmt plot -Ey+w4p+p0.3p,black -Ss0.2c -W0.3p -G15/184/34
-    echo 100.48231511254019 11.106109324758842 1.85 | gmt plot -Ey+w4p+p0.3p,black -Ss0.2c -W0.3p -G15/184/34
+    @REM echo 94.54280395522568  10.836012861736334 0.93 | gmt plot -Ey+w4p+p0.3p,black -Ss0.2c -W0.3p -G15/184/34
+    @REM echo 94.91845369049634  11.067524115755628 1.97 | gmt plot -Ey+w4p+p0.3p,black -Ss0.2c -W0.3p -G15/184/34
+    @REM echo 95.49075260498513  10.372990353697748 1.5  | gmt plot -Ey+w4p+p0.3p,black -Ss0.2c -W0.3p -G15/184/34
+    @REM echo 99.49234823392887  9.09967845659164 2.93   | gmt plot -Ey+w4p+p0.3p,black -Ss0.2c -W0.3p -G15/184/34
+    @REM echo 99.82211154896888  9.94855305466238 0.85   | gmt plot -Ey+w4p+p0.3p,black -Ss0.2c -W0.3p -G15/184/34
+    @REM echo 99.82496434011072  7.672025723472668 1.16  | gmt plot -Ey+w4p+p0.3p,black -Ss0.2c -W0.3p -G15/184/34
+    @REM echo 100.48231511254019 11.106109324758842 1.85 | gmt plot -Ey+w4p+p0.3p,black -Ss0.2c -W0.3p -G15/184/34
+
+    echo 94.5204872646733 11.89723320158103 1      | gmt plot -Ey+w4p+p0.3p,black -Ss0.2c -W0.3p -G15/184/34
+    echo 94.8781838316722 12.063241106719369 2.65  | gmt plot -Ey+w4p+p0.3p,black -Ss0.2c -W0.3p -G15/184/34
+    echo 95.2358803986711 10.790513833992097 1.55  | gmt plot -Ey+w4p+p0.3p,black -Ss0.2c -W0.3p -G15/184/34
+    echo 99.12846068660022 10.292490118577076 2.88 | gmt plot -Ey+w4p+p0.3p,black -Ss0.2c -W0.3p -G15/184/34
+    echo 99.27574750830564 8.853754940711463 0.72  | gmt plot -Ey+w4p+p0.3p,black -Ss0.2c -W0.3p -G15/184/34
+    echo 99.296788482835 10.845849802371543 0.5    | gmt plot -Ey+w4p+p0.3p,black -Ss0.2c -W0.3p -G15/184/34
+    echo 100.55924695459579 12.49 2.5              | gmt plot -Ey+w4p+p0.3p,black -Ss0.2c -W0.3p -G15/184/34
 
     @REM Kirby et al.(2007)
     echo 101.2871406812852  4.85530546623794 0.85   | gmt plot -Ey+w4p+p0.3p,black -St0.2c -W0.3p -G213/93/172
@@ -140,7 +148,7 @@ gmt begin error_bar png E500
     echo S 0.3c y 0.2c - 4p,purple 0.5c Zheng et al.(2017)             >> legend.txt
     echo S 0.3c y 0.2c - 4p,red 0.5c Diao et al.(2019)                 >> legend.txt
     echo S 0.3c y 0.2c - 4p,252/190/203 0.5c Wang and Shen.(2019)      >> legend.txt
-    echo S 0.3c y 0.2c - 4p,242/166/1 0.5c This study                  >> legend.txt
+    echo S 0.3c y 0.2c - 4p,242/166/1 0.5c Zhao et al.(2022)           >> legend.txt
 
     echo N 1                                                           >> legend.txt
     echo G 0.1c                                                        >> legend.txt

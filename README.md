@@ -102,7 +102,7 @@ gmt grdmath unw.grd -4 SUB 4 -4 SUB MOD -4 ADD = wrap8.grd
 gmt grdsample dem.grd -Runw_re.grd -I1256+n/1054+n -Gdem_re.grd
 ```
 
-[示例代码](examples/InSAR解缠图叠加地形光照效果/unw.bat)
+[示例代码](examples/InSAR缠绕图叠加地形光照效果/unw.bat)
 
 ## grdtrack
 
@@ -151,4 +151,4 @@ gmt meca earthquake -CP2p -Gred -Sa1.3c -L0.5
 
 ## velo
 
-[示例代码](examples/GPS速度场/vel.sh)
+[示例代码](examples/GPS速度场/vel.bat)
